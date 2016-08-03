@@ -1,0 +1,18 @@
+<div>
+    <h1>{{title}}</h1>
+
+    <div class='col-md-6'><img ng-src="{{image}}" alt=""></div>
+    <div class='col-md-6 actor'>
+        <p><span>导演:</span>
+            <span ng-repeat='a in director'>{{a.name}}</span>
+            <!--<span>{{data.directors}}</span>-->
+        </p>
+        <p><span>主演:</span>
+            <span ng-repeat="b in actors">{{b.name}}{{$last?'':'、'}}</span>
+        </p>
+
+
+        <div>电影简介：</div>
+        <p>{{summary}}</p>
+    </div>
+</div>

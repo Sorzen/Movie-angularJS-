@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moviecat</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body ng-app='movieApp'>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Moviecat</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" ng-controller='movieCtrl' ng-submit='search()'>
+                <input type="text" class="form-control" placeholder="搜索" ng-model='searchText'>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="#/in_theaters">正在热映</a></li>
+                <li><a href="#/coming_soon">即将上映</a></li>
+                <li><a href="#/top250">TOP250</a></li>
+            </ul>
+        </div>
+        <!-- 主要的内容区域 -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+            <div>
+                <p>总共：25条记录，第1/5页</p>
+                <nav>
+                    <ul class="pager">
+                        <li class="disabled"><a>上一页</a></li>
+                        <li class=""><a>下一页</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src='../../angular-1.5.8/angular.js'></script>
+<script src='../../angular-1.5.8/angular-route.js'></script>
+
+<!--其他模块都要用所以放在前面-->
+<script src='module/service/httpService.js'></script>
+<script src='./module/main/module.js'></script>
+<script src='./module/main/route.js'></script>
+<!--正在热映-->
+<!--<script src='./module/in_theaters/module.js'></script>-->
+<!--<script src='./module/in_theaters/route.js'></script>-->
+<script src='./module/detail/module.js'></script>
+<script src='./module/detail/route.js'></script>
+
+<!--电影列表-->
+<script src='./module/movieList/module.js'></script>
+<script src='./module/movieList/route.js'></script>
+</html>
